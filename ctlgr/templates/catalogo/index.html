@@ -1,0 +1,48 @@
+{% extends "base.html" %} 
+
+{% block content %}
+  {% if latest_list_books %}
+  <legend>Lista de Livros</legend>
+  <table class='list'>
+	<thead>
+    <tr>
+      <th>Nome</th>
+      <th>Autor</th>
+      <th>isbn</th>
+    </tr>
+	</thead>
+	<tbody>
+    {% for livro in latest_list_books %}
+    <tr>
+      <td>{{ livro.name }}</td>
+      <td>{{ livro.author }}</td>
+      <td>{{ livro.isbn }}</td>
+    </tr> 
+    {% endfor %} 
+	</tbody>
+  </table>
+  {% else %}
+  <p> Nao ha livros cadastrados</p> 
+  {% endif %}
+  {% if latest_list_movies %}
+  <legend>Lista de filmes</legend>
+  <table class='list'>
+	<thead>
+    <tr>
+      <th>Nome</th>
+      <th>diretor</th>
+    </tr>
+	</thead>
+	<tbody>
+    {% for filme in latest_list_movies %}
+    <tr>
+      <td>{{ filme.name }}</td>
+      <td>{{ filme.director }}</td>
+    </tr> 
+    {% endfor %} 
+	</tbody>
+  </table>
+  {% else %}
+  <p> Nao ha filmes cadastrados</p> 
+  {% endif %}
+{% endblock %}

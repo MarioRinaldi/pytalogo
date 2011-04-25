@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>{% block title %}Ctlgr - Catalogo de livros e DVD{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="/ctlgr-theme/css/style.css">
+  <link rel="stylesheet" media="all" type="text/css" href="/ctlgr-theme/css/menu_style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+</head>
+<body class="{% block pageClass %}index{% endblock %}">
+  <div id="wrapper">
+    <div id="header">
+      <p>This is the Header</p>		 
+    </div>
+    <div id="navigation" class="menu bubplastic horizontal blue">
+      {% block menu %}
+      <ul>
+        <li id="menu_index"><span class="menu_r"><a href="/"><span class="menu_ar">Home</span></a></span></li>
+        <li id="menu_livro"><span class="menu_r"><a href="/catalogo/livros"><span class="menu_ar">Livros</span></a></span></li>
+		<li id="menu_filme"><span class="menu_r"><a href="/catalogo/filmes"><span class="menu_ar">filmes</span></a></span></li>
+        <li id="menu_about"><span class="menu_r"><a href="/about"><span class="menu_ar">About</span></a></span></li>
+      </ul>
+      {% endblock %}
+    </div>
+    <br class="clearit" />
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+    <div id="footer">
+      <p>2011@copyleft - Mario Felipe Rinaldi</p>		
+    </div>
+  </div>
+</body>
+</html>

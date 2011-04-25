@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+
+{% block menu %}
+<ul>
+  <li id="menu_index"><span class="menu_r"><a href="/"><span class="menu_ar">Home</span></a></span></li>
+  <li id="menu_livro"><span class="menu_r"><a href="/catalogo/livros"><span class="menu_ar">Livros</span></a></span></li>
+  <li id="menu_filme"><span class="menu_r"><a href="/catalogo/filmes"><span class="menu_ar">filmes</span></a></span></li>
+  <li id="menu_about" class="highlight"><span class="menu_r"><a href="/about"><span class="menu_ar">About</span></a></span></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+  {% if latest_list %}
+      {% for sobre in latest_list %}
+      <h2>{{ sobre.title }}</h2>
+      {% if sobre.photo %}
+      <img src="{{ sobre.photo.url }}" alt="{{ sobre.photo.name }}" />
+      {% endif %}
+      <p>{{ sobre.text }}</p>
+      {% endfor %}
+  {% else %}
+  <p>{{ error_message }}</p> 
+  {% endif %}
+{% endblock %}
