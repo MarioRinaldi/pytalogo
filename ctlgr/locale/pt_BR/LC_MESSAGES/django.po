@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-26 12:00-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/base.html:6
+msgid "my own Catalog of things"
+msgstr ""
+
+#: templates/base.html:14
+msgid "This is the Header"
+msgstr ""
+
+#: templates/base.html:18
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:19
+msgid "Books"
+msgstr ""
+
+#: templates/base.html:20
+msgid "Movies"
+msgstr ""
+
+#: templates/base.html:21
+msgid "About"
+msgstr ""
+
+#: templates/about/index.html:15 templates/catalogo/list.html:47
+msgid "Nothing here!"
+msgstr ""
+
+#: templates/catalogo/index.html:6
+msgid "List of books"
+msgstr ""
+
+#: templates/catalogo/index.html:10 templates/catalogo/index.html.py:31
+#: templates/catalogo/list.html:12 templates/catalogo/list.html.py:29
+msgid "Name"
+msgstr ""
+
+#: templates/catalogo/index.html:11 templates/catalogo/list.html:13
+#: templates/catalogo/show.html:10
+msgid "Author"
+msgstr ""
+
+#: templates/catalogo/index.html:12 templates/catalogo/list.html:14
+#: templates/catalogo/show.html:14
+msgid "ISBN"
+msgstr ""
+
+#: templates/catalogo/index.html:27
+msgid "List of movies"
+msgstr ""
+
+#: templates/catalogo/index.html:32 templates/catalogo/list.html:30
+#: templates/catalogo/show.html:19
+msgid "Director"
+msgstr ""
+
+#: templates/catalogo/list.html:7
+#, python-format
+msgid "List of %(type)s"
+msgstr ""
+
+#: templates/catalogo/list.html:45
+msgid "Nothing To search"
+msgstr ""
+
+#: templates/catalogo/show.html:12
+msgid "Description"
+msgstr ""
+
+#: templates/catalogo/show.html:17
+msgid "Year"
+msgstr ""
+
+#: templates/catalogo/show.html:21
+msgid "Synopsis"
+msgstr ""
+
+#: templates/catalogo/show.html:24
+msgid "Cast"
+msgstr ""
+
+#: templates/catalogo/show.html:30 templates/catalogo/show.html.py:31
+msgid "Buy on Submarino"
+msgstr ""
+
+#: templates/catalogo/show.html:34
+msgid "Sorry, but not exist this item"
+msgstr ""
