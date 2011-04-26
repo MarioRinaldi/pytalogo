@@ -1,4 +1,4 @@
-﻿# SOME DESCRIPTIVE TITLE.# Brazilian Portuguese (pt_BR) translation file.
+# Brazilian Portuguese (pt_BR) translation file.
 #
 # Copyright (C) 2011 - Mario Felipe Rinaldi
 # This file is distributed under the same license as the pytalogo package.
