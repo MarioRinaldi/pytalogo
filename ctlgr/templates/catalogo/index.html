@@ -3,13 +3,13 @@
 
 {% block content %}
     {% if items_books %}
+        <legend id="legend">{% trans "List of books" %}</legend>
         <table class='list'>
-            <legend id="legend">{% Trans "List of books" %}</legend>
             <thead>
             <tr>
-              <th>{% Trans "Name" %}</th>
-              <th>{% Trans "Author" %}</th>
-              <th>{% Trans "ISBN" %}</th>
+              <th>{% trans "Name" %}</th>
+              <th>{% trans "Author" %}</th>
+              <th>{% trans "ISBN" %}</th>
             </tr>
             </thead>
             <tbody>
@@ -24,12 +24,12 @@
         </table>
     {% endif %}
     {% if items_movies %}
+        <legend id="legend">{% trans "List of movies" %}</legend>
         <table class='list'>
-            <legend id="legend">{% Trans "List of movies" %}</legend>
             <thead>       
             <tr>
-              <th>{% Trans "Name" %}</th>
-              <th>{% Trans "Director" %}</th>
+              <th>{% trans "Name" %}</th>
+              <th>{% trans "Director" %}</th>
             </tr>
             </thead>
             <tbody>

@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-{% block pageClass %}list {% type %}{% endblock %}
+{% block pageClass %}list {{ type }}{% endblock %}
 {% load i18n %}
 
 {% block content %}
     {% if items %}
+        <legend class="legend">{% blocktrans %}List of {{type}}{% endblocktrans %}</legend>
         <table class='list'>
             {% if type == 'books' %}
-                <legend id="legend">{% Trans "List of books" %}</legend>
                 <thead>
                 <tr>
-                  <th>{% Trans "Name" %}</th>
-                  <th>{% Trans "Author" %}</th>
-                  <th>{% Trans "ISBN" %}</th>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Author" %}</th>
+                  <th>{% trans "ISBN" %}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,11 +24,10 @@
                 {% endfor %} 
                 </tbody>
             {% elif type == 'movies' %}
-                <legend id="legend">{% Trans "List of movies" %}</legend>
                 <thead>       
                 <tr>
-                  <th>{% Trans "Name" %}</th>
-                  <th>{% Trans "Director" %}</th>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Director" %}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,9 +42,9 @@
         </table>
     {% else %}
         {% if search is True %}
-            <p>{% Trans "Nothing To search" %}</p> 
+            <p>{% trans "Nothing To search" %}</p> 
         {% else %}
-            <p>{% Trans "Nothing here!" %}</p> 
+            <p>{% trans "Nothing here!" %}</p> 
         {% endif %}
     {% endif %}
 {% endblock %}
