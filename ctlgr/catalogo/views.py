@@ -1,66 +1,55 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response, get_list_or_404
 from django.template import Context, loader
-from ctlgr.catalogo.models import Livro, Filme
+from ctlgr.catalogo.models import Book, Movie
 
 
 def index(request):
-  latest_list_books = Livro.objects.all().order_by('name')[:5]
-  template = loader.get_template('catalogo/index.html')
-  context = Context({
- 	'latest_list_books': latest_list_books,
-  })
-  return HttpResponse(template.render(context))
+    latest_list_books = Book.objects.all().order_by('name')[:5]
+    template = loader.get_template('catalogo/index.html')
+    context = Context({
+        'latest_list_books': latest_list_books,
+    })
+    return HttpResponse(template.render(context))
   
-def livros(request):
-  latest_list_books = Livro.objects.all().order_by('name')[:10]
-  template = loader.get_template('catalogo/livros.html')
-  if latest_list_books: 
-    context = Context({'latest_list_books': latest_list_books,})
-  else:
-    context = Context({'error_message': "Nao existem livros cadastrados!!!",})
-  return HttpResponse(template.render(context))
-
-def searchLivro(request):
-  if 'q' in request.GET:
-    livro_name = request.GET['q'].capitalize()
-    latest_list_books = get_list_or_404(Livro, name__contains=livro_name)
-    context = Context({ 'latest_list_books': latest_list_books, })
-  else:
-    context = Context({'error_message': "para fazer uma pesquisa \
-              voce deve informar um parametro!",})
-  template = loader.get_template('catalogo/livroSearch.html')
-  return HttpResponse(template.render(context))
-
-def livros_show(request, livro_id):
-  livro = get_object_or_404(Livro, pk=livro_id)
-  context = {'livro': livro}
-  return render_to_response('catalogo/livros_show.html', context)
-
+def list(request, templateName=None, type=None):
+    if type == 'books'
+        items = Book.objects.all().order_by('name')[:10]
+    if type == 'movies'
+        items = Movie.objects.all().order_by('name')[:10]
+    templateName = templateName or 'list'
+    template = loader.get_template('catalogo/' + templateName + '.html')
     
-def filmes(request):
-  latest_list_movies = Filme.objects.all().order_by('name')[:10]
-  template = loader.get_template('catalogo/filmes.html')
-  if latest_list_movies: 
-    context = Context({'latest_list_movies': latest_list_movies,})
-  else:
-    context = Context({'error_message': "Nao existem filmes cadastrados!!!",})
-  return HttpResponse(template.render(context))
+    if list: 
+        context = Context({
+            'items': items,
+            'type': type,
+        })
 
-def searchFilme(request):
-  if 'q' in request.GET:
-    filme_name = request.GET['q'].capitalize()
-    latest_list_movies = get_list_or_404(Filme, name__contains=filme_name)
-    context = Context({'latest_list_movies': latest_list_movies,})
-  else:
-    context = Context({'error_message': "para fazer uma pesquisa \
-              voce deve informar um parametro!",})
-  template = loader.get_template('catalogo/filmeSearch.html')
-  return HttpResponse(template.render(context))
+    return HttpResponse(template.render(context))
     
+def search(request, type=None):
+    if 'q' in request.GET:
+        name = request.GET['q'].capitalize()
+        items = get_list_or_404(type, name__contains=name)
+        context = Context({
+            'items': items,
+            'type': type,
+            'search': True,
+        })
 
-def filmes_show(request, filme_id):
-  filme = get_object_or_404(Filme, pk=filme_id)
-  context = {'filme': filme}
-  return render_to_response('catalogo/filmes.html', context)
+    templateName = templateName or 'list'
+    template = loader.get_template('catalogo/' + templateName + '.html')
+    return HttpResponse(template.render(context))
 
+def show(request, item_id, type=None):
+    if item_id:
+        item = get_object_or_404(type, pk=item_id)
+        context = context({
+            'item': item,
+            'type': type,
+        })
+
+    templateName = templateName or 'show'
+    template = loader.get_template('catalogo/' + templateName + '.html')
+    return HttpResponse(template.render(context))

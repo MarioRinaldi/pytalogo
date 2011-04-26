@@ -1,6 +1,6 @@
 from django.db import models
 
-class Livro(models.Model):
+class Book(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
@@ -18,7 +18,7 @@ class Livro(models.Model):
         return self.link
         return self.submarino
 
-class Filme(models.Model):
+class Movie(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     director = models.CharField(max_length=255)
@@ -26,7 +26,7 @@ class Filme(models.Model):
     cast = models.TextField(null=True, blank=True)
     link = models.CharField(max_length=255, null=True, blank=True)
     submarino = models.CharField(max_length=255, null=True, blank=True)
-#    year = models.CharField(max_length=10, null=True, blank=True)
+    year = models.CharField(max_length=10, null=True, blank=True)
     photo = models.ImageField(upload_to='Movies')
 
     def __unicode__(self):
