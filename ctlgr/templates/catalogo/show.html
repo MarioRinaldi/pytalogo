@@ -12,7 +12,8 @@
                 <p><label>{% trans "Description" %}: </label>{{ item.description }}</p>
             {% endif %}
             <p><label>{% trans "ISBN" %}: </label>{{ item.isbn }}</p>
-        {% elif type == 'movies' %}
+        {% else %}
+		{% if type == 'movies' %}
             {% if item.year %}
                 <p><label>{% trans "Year" %}: </label>{{ item.year }}</p>
             {% endif %}
@@ -23,6 +24,7 @@
             {% if item.cast %}
                 <p><label>{% trans "Cast" %}: </label>{{ item.cast }}</p>
             {% endif %}
+        {% endif %}
         {% endif %}
         <a class='submarino' href='{{ item.submarino }}'>
             <img

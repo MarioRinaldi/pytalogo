@@ -42,7 +42,7 @@ books_search_url = url(
 
 # books show
 books_show_url = url(
-	r'book/(?P<book_id>\d+)$',
+	r'book/(?P<item_id>\d+)$',
 	'ctlgr.catalogo.views.show',
 	{'type': 'books'},
 	name='books_show_url',
@@ -66,7 +66,7 @@ movies_search_url = url(
 
 # movies show
 movies_show_url = url(
-	r'movie/(?P<movie_id>\d+)$',
+	r'movie/(?P<item_id>\d+)$',
 	'ctlgr.catalogo.views.show',
 	{'type': 'movies'},
 	name='movies_show_url',

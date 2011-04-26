@@ -1,6 +1,6 @@
-from ctlgr.catalogo.models import Livro, Filme
+from ctlgr.catalogo.models import Book, Movie
 from django.contrib import admin
 
 
-admin.site.register(Livro)
-admin.site.register(Filme)
+admin.site.register(Book)
+admin.site.register(Movie)

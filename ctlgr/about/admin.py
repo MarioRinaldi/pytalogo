@@ -1,5 +1,5 @@
-from ctlgr.about.models import Sobre
+from ctlgr.about.models import About
 from django.contrib import admin
 
 
-admin.site.register(Sobre)
+admin.site.register(About)

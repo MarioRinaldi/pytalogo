@@ -17,13 +17,14 @@
                 <tbody>
                 {% for item in items %}
                     <tr>
-                      <td><a href="/books/{{ item.id }}">{{ item.name }}</a></td>
+                      <td><a href="/book/{{ item.id }}">{{ item.name }}</a></td>
                       <td>{{ item.author }}</td>
                       <td>{{ item.isbn }}</td>
                     </tr>
                 {% endfor %} 
                 </tbody>
-            {% elif type == 'movies' %}
+            {% else %}
+            {% if type == 'movies' %}
                 <thead>       
                 <tr>
                   <th>{% trans "Name" %}</th>
@@ -33,15 +34,16 @@
                 <tbody>
                 {% for item in items %}
                     <tr>
-                      <td><a href="/books/{{ item.id }}">{{ item.name }}</a></td>
+                      <td><a href="/movie/{{ item.id }}">{{ item.name }}</a></td>
                       <td>{{ item.director }}</td>
                     </tr> 
                 {% endfor %} 
                 </tbody>
             {% endif %}
+            {% endif %}
         </table>
     {% else %}
-        {% if search is True %}
+        {% if search %}
             <p>{% trans "Nothing to search" %}</p> 
         {% else %}
             <p>{% trans "Nothing here!" %}</p> 
