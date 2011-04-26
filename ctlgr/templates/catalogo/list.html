@@ -1,36 +1,51 @@
-{% extends "base.html" %} 
-
-{% block menu %}
-<ul>
-  <li id="menu_index"><span class="menu_r"><a href="/"><span class="menu_ar">Home</span></a></span></li>
-  <li id="menu_livro" class="highlight"><span class="menu_r"><a href="/catalogo/livros"><span class="menu_ar">Livros</span></a></span></li>
-  <li id="menu_filme"><span class="menu_r"><a href="/catalogo/filmes"><span class="menu_ar">filmes</span></a></span></li>
-  <li id="menu_about"><span class="menu_r"><a href="/about"><span class="menu_ar">About</span></a></span></li>
-</ul>
-{% endblock %}
+{% extends "base.html" %}
+{% block pageClass %}list {% type %}{% endblock %}
+{% load i18n %}
 
 {% block content %}
-  {% if latest_list_books %}
-  <legend>Lista de Livros</legend>
-  <table class="list">
-	<thead>
-	<tr>
-	  <th>Nome</th>
-	  <th>Autor</th>
-	  <th>ISBN</th>
-	</tr>
-	</thead>
-	<tbody>
-    {% for livro in latest_list_books %}
-    <tr>
-      <td><a href="/catalogo/livro/{{ livro.id }}">{{ livro.name }}</a></td>
-      <td>{{ livro.author }}</td>
-      <td>{{ livro.isbn }}</td>
-    </tr> 
-    {% endfor %}
-	</tbody>
-  </table>
-  {% else %}
-  <p>{{ error_message }}</p> 
-  {% endif %}
+    {% if items %}
+        <table class='list'>
+            {% if type == 'books' %}
+                <legend id="legend">Lista de {% Trans "books" %}</legend>
+                <thead>
+                <tr>
+                  <th>{% Trans "Name" %}</th>
+                  <th>{% Trans "Author" %}</th>
+                  <th>{% Trans "ISBN" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                      <td><a href="/books/{{ item.id }}">{{ item.name }}</a></td>
+                      <td>{{ item.author }}</td>
+                      <td>{{ item.isbn }}</td>
+                    </tr>
+                {% endfor %} 
+                </tbody>
+            {% elif type == 'movies' %}
+                <legend id="legend">Lista de {% Trans "movies" %}</legend>
+                <thead>       
+                <tr>
+                  <th>{% Trans "Name" %}</th>
+                  <th>{% Trans "Director" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                      <td><a href="/books/{{ item.id }}">{{ item.name }}</a></td>
+                      <td>{{ item.director }}</td>
+                    </tr> 
+                {% endfor %} 
+                </tbody>
+            {% endif %}
+        </table>
+    {% else %}
+        {% if search is True %}
+            <p>{% Trans "Nothing To search" %}</p> 
+        {% else %}
+            <p>{% Trans "Nothing here!" %}</p> 
+        {% endif %}
+    {% endif %}
 {% endblock %}
