@@ -6,7 +6,7 @@
     {% if items %}
         <table class='list'>
             {% if type == 'books' %}
-                <legend id="legend">Lista de {% Trans "books" %}</legend>
+                <legend id="legend">{% Trans "List of books" %}</legend>
                 <thead>
                 <tr>
                   <th>{% Trans "Name" %}</th>
@@ -24,7 +24,7 @@
                 {% endfor %} 
                 </tbody>
             {% elif type == 'movies' %}
-                <legend id="legend">Lista de {% Trans "movies" %}</legend>
+                <legend id="legend">{% Trans "List of movies" %}</legend>
                 <thead>       
                 <tr>
                   <th>{% Trans "Name" %}</th>
