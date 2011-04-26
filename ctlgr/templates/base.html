@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>{% block title %}Ctlgr - Catalogo de livros e DVD{% endblock %}</title>
+  <title>{% block title %}{% Trans "my own Catalog of things" %}{% endblock %}</title>
   <link rel="stylesheet" type="text/css" href="/ctlgr-theme/css/style.css">
   <link rel="stylesheet" media="all" type="text/css" href="/ctlgr-theme/css/menu_style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
@@ -10,7 +11,7 @@
 <body class="{% block pageClass %}index{% endblock %}">
   <div id="wrapper">
     <div id="header">
-      <p>This is the Header</p>		 
+      <p>{% Trans "This is the Header" %}</p>		 
     </div>
     <div id="navigation" class="menu bubplastic horizontal blue">
       <ul>
