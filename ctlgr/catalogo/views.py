@@ -15,9 +15,9 @@ def index(request):
     return HttpResponse(template.render(context))
   
 def list(request, templateName=None, type=None):
-    if type == 'books'
+    if type == 'books':
         items = Book.objects.all().order_by('name')[:10]
-    if type == 'movies'
+    elif type == 'movies':
         items = Movie.objects.all().order_by('name')[:10]
     templateName = templateName or 'list'
     template = loader.get_template('catalogo/' + templateName + '.html')
@@ -44,14 +44,16 @@ def search(request, type=None):
     template = loader.get_template('catalogo/' + templateName + '.html')
     return HttpResponse(template.render(context))
 
-def show(request, item_id, type=None):
-    if item_id:
-        item = get_object_or_404(type, pk=item_id)
-        context = context({
-            'item': item,
-            'type': type,
-        })
+def show(request, item_id, type=None, templateName=None):
+    if type == 'books':
+        item = get_object_or_404(Book, pk=item_id)
+    elif type == 'Movies':
+        item = get_object_or_404(Movie, pk=item_id)
+    context = Context({
+         'item': item,
+         'type': type,
+     })
 
-    templateName = templateName or 'show'
-    template = loader.get_template('catalogo/' + templateName + '.html')
+    templateName = templateName or 'catalogo/show.html'
+    template = loader.get_template(templateName)
     return HttpResponse(template.render(context))
