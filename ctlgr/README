@@ -1,4 +1,12 @@
 pytalogo
-catalog of movies and books
-
 internal codename: ctlgr
+
+personal catalog of movies and books
+
+TO-DO
+-> add support for music (cd, lp, etc)
+-> add support for loans
+
+
+How to use
+-> mv sample_local_settings.py to local_settings.py and edit him.
