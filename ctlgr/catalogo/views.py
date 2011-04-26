@@ -5,10 +5,12 @@ from ctlgr.catalogo.models import Book, Movie
 
 
 def index(request):
-    latest_list_books = Book.objects.all().order_by('name')[:5]
+    items_books = Book.objects.all().order_by('name')[:5]
+    items_movies = Movie.objects.all().order_by('name')[:5]
     template = loader.get_template('catalogo/index.html')
     context = Context({
-        'latest_list_books': latest_list_books,
+        'items_books': items_books,
+        'items_movies': items_movies,
     })
     return HttpResponse(template.render(context))
   
