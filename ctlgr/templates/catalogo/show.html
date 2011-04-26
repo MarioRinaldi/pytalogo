@@ -1,5 +1,5 @@
 {% extends "base.html" %} 
-{% block pageClass %}show {% type %}{% endblock %}
+{% block pageClass %}show {{ type }}{% endblock %}
 {% load i18n %}
 
 {% block content %}
@@ -7,30 +7,30 @@
         <h2>{{ item.name }}</h2>
         <img id='capa' src='{{ item.photo.url }}' alt='{{ item.photo.name }}' />
         {% if type == 'books' %}
-            <p><label>{% Trans "Author" %}: </label>{{ item.author }}</p>         
+            <p><label>{% trans "Author" %}: </label>{{ item.author }}</p>         
            {% if item.description %}
-                <p><label>{% Trans "Description" %}: </label>{{ item.description }}</p>
+                <p><label>{% trans "Description" %}: </label>{{ item.description }}</p>
             {% endif %}
-            <p><label>{% Trans "ISBN" %}: </label>{{ item.isbn }}</p>
+            <p><label>{% trans "ISBN" %}: </label>{{ item.isbn }}</p>
         {% elif type == 'movies' %}
             {% if item.year %}
-                <p><label>{% Trans "Year" %}: </label>{{ item.year }}</p>
+                <p><label>{% trans "Year" %}: </label>{{ item.year }}</p>
             {% endif %}
-            <p><label>{% Trans "Director" %}: </label>{{ item.director }}</p>
+            <p><label>{% trans "Director" %}: </label>{{ item.director }}</p>
             {% if item.synopsis %}
-                <p><label>{% Trans "Synopsis" %}: </label>{{ item.synopsis }}</p>
+                <p><label>{% trans "Synopsis" %}: </label>{{ item.synopsis }}</p>
             {% endif %}
             {% if item.cast %}
-                <p><label>{% Trans "Cast" %}: </label>{{ item.cast }}</p>
+                <p><label>{% trans "Cast" %}: </label>{{ item.cast }}</p>
             {% endif %}
         {% endif %}
         <a class='submarino' href='{{ item.submarino }}'>
             <img
                 src='http://i.s8.com.br/images/affiliates/selos/88x31_selo.gif'
-                alt='{% Trans "Buy on Submarino" %}' 
-                title='{% Trans "Buy on Submarino" %}' />
+                alt='{% trans "Buy on Submarino" %}' 
+                title='{% trans "Buy on Submarino" %}' />
         </a>
     {% else %}
-        <p>{% Trans "Sorry, but not exist this item"%}</p> 
+        <p>{% trans "Sorry, but not exist this item"%}</p> 
     {% endif %}
 {% endblock %}
