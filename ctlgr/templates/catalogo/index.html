@@ -15,7 +15,7 @@
             <tbody>
             {% for item in items_books %}
                 <tr>
-                  <td><a href="/books/{{ item.id }}">{{ item.name }}</a></td>
+                  <td><a href="/book/{{ item.id }}">{{ item.name }}</a></td>
                   <td>{{ item.author }}</td>
                   <td>{{ item.isbn }}</td>
                 </tr>
@@ -35,7 +35,7 @@
             <tbody>
             {% for item in items %}
                 <tr>
-                  <td><a href="/books/{{ item.id }}">{{ item.name }}</a></td>
+                  <td><a href="/movie/{{ item.id }}">{{ item.name }}</a></td>
                   <td>{{ item.director }}</td>
                 </tr> 
             {% endfor %} 
